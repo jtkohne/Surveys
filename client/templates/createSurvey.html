@@ -1,0 +1,57 @@
+<template name="createSurvey">
+  <div>
+
+    <h1>Create Survey</h1>
+
+    {{#if step1}}
+    <div class="data-panel" {{checkIsActive}} data-tab="0">
+      <input type="text" name="surveyName" />
+      <select {{questionAttributes}}>
+        <label> Number of Questions: </label>
+          {{#each numberOfQuestionOptions}}
+            <option>{{this}}</option>
+          {{/each}}
+      </select>
+      <select {{answerAttributes}}>
+        <label> Number of Answers: </label>
+          {{#each numberOfQuestionAnswerOptions}}
+            <option>{{this}}</option>
+          {{/each}}
+      </select>
+      <button type="button" data-action="continue">Continue</button>
+    </div>
+    {{/if}}
+
+    {{#if step2}}
+    <div class="data-panel {{checkIsActive}}" data-tab="2">
+      {{#each questions}}
+        <label>{{label}} {{number}}
+          <input name="{{name}}" type="text" /><br/>
+        </label>
+        {{#each answers}}
+          <label>{{label}} {{number}}
+            <input name="{{name}}" type="text" /><br/>
+          </label>
+        {{/each}}
+      {{/each}}
+      <button type="button" data-action="continue">Continue</button>
+    </div>
+    {{/if}}
+
+    {{#if step3}}
+    <div class="data-panel {{checkIsActive}}" data-tab="3">
+      <h3>Confirm:</h3>
+      {{#each createdQuestionAndAnswer}}
+        <div>
+          <h5>{{question}}</h5>
+          {{#each answers}}
+            {{number}}: {{answer}} <br/>
+          {{/each}}
+        </div>
+      {{/each}}
+      <button type="button" data-action="create-survey">Create Survey</button>
+    </div>
+    {{/if}}
+
+  </div>
+</template>

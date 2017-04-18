@@ -1,0 +1,13 @@
+<template name="mySurveys">
+  {{#each mySurveys}}
+    <div>
+      <h3>{{name}}</h3>
+      <p>
+        {{createdAt}}
+      </p>
+      <a href="#" data-action="show-questions">Show Questions</a>
+      <button data-action="publish-post">Publish</button>
+    </div>
+  {{/each}}
+
+</template>

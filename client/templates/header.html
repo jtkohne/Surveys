@@ -1,0 +1,7 @@
+<template name="header">
+  <h1>Survey Builder - by Jon Kohne</h1>
+  {{#if currentUser}}
+  <a href="{{pathFor 'my-surveys'}}">My Surveys</a>
+  {{/if}}
+  {{> loginButtons}}
+</template>
